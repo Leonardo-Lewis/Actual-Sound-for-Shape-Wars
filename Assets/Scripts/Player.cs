@@ -28,9 +28,12 @@ public class Player : MonoBehaviour
 
     private Vector3 playerStartLocation;
 
+    private AudioSource audioSource;
+
 
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         isDead = false;
         playerController = gameObject.GetComponent<CharacterController>();
         gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
@@ -77,6 +80,7 @@ public class Player : MonoBehaviour
 
     public void Kill()
     {
+        audioSource.Play();
         GameObject temp = Instantiate(deathParticles, transform.position, Quaternion.identity) as GameObject;
         Destroy(temp, deathParticlesKillTime);
         gameManager.gameState = GameState.dead;

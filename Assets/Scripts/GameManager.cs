@@ -19,12 +19,16 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public int highScore;
     [HideInInspector] public int score;
 
+    private AudioSource audioSource;
+
 
     void Start()
     {
         gameState = GameState.preGame;
         player = GameObject.FindGameObjectWithTag("Player");
         enemyManager = GameObject.FindGameObjectWithTag("EnemyManager");
+
+        audioSource = GetComponent<AudioSource>();
 
         for (int i = 0; i < enableOnGameStart.Count; i++)
             enableOnGameStart[i].SetActive(false);
@@ -41,6 +45,7 @@ public class GameManager : MonoBehaviour
         if ((gameState == GameState.preGame) || (gameState == GameState.dead))
             if (gamepad.aButton.isPressed)
             {
+                audioSource.Play();
                 player.GetComponent<Player>().isDead = false;
                 enemyManager.GetComponent<EnemyManager>().timePassed = 0f;
                 score = 0;

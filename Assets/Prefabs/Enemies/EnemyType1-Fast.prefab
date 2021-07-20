@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3503709579363274119}
   - component: {fileID: 7832349858630295070}
   - component: {fileID: 3327870078913399822}
-  - component: {fileID: 3092672822692990665}
   m_Layer: 0
   m_Name: EnemyType1-Fast
   m_TagString: Enemy
@@ -75,11 +74,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 5ad267be35499ae4a95d617e60088af7, type: 3}
+  m_audioClip: {fileID: 8300000, guid: f780b26e72ad29f498ac6d0dc64c362e, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.05
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -161,14 +160,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!81 &3092672822692990665
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 977800018378148169}
-  m_Enabled: 1
 --- !u!1 &1726932828183610444
 GameObject:
   m_ObjectHideFlags: 0

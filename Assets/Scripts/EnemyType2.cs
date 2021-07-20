@@ -18,12 +18,15 @@ public class EnemyType2 : MonoBehaviour
     private float timePassed;
 
     public int pointValue;
+    private AudioSource audioSource;
 
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
         timePassed = lagTime;
+        audioSource.Play();
     }
 
     void Update()

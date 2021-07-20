@@ -8,18 +8,21 @@ public class EnemyType1 : MonoBehaviour
     public GameObject deathParticles;
     public float deathParticlesKillTime;
 
+
     public float wallcollisionRange;
     private GameManager gameManager;
     private Player player;
-    private AudioSource audioSource;
 
     public int pointValue;
 
+    private AudioSource audioSource;
+
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
-        audioSource = GetComponent<AudioSource>();
+        audioSource.Play();
     }
 
     void Update()
@@ -40,6 +43,7 @@ public class EnemyType1 : MonoBehaviour
         }
         if (other.tag == "PlayerProjectile")
         {
+            
             Destroy(other.gameObject);
             Kill(true);
         }
@@ -52,7 +56,6 @@ public class EnemyType1 : MonoBehaviour
         GameObject temp = Instantiate(deathParticles, transform.position, Quaternion.identity) as GameObject;
         Destroy(temp, deathParticlesKillTime);
         Destroy(gameObject);
-        audioSource.Play();
     }
 
     void DetectWall()
